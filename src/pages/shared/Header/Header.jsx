@@ -17,6 +17,8 @@ const Header = () => {
               <Nav.Link href="#link">Blog </Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          {/*evabe update krte hbe user?{user.photUrl}:<button>Login</button> */}
+          <button>Login</button>
         </Container>
       </Navbar>
     </div>

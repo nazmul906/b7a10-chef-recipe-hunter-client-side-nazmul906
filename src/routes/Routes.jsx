@@ -18,8 +18,16 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/chef"),
       },
       {
+        path: "/chef/:id",
+        element: <Recipes></Recipes>,
+      },
+
+      {
         path: "/viewrecipe/:id",
         element: <Recipes></Recipes>,
+        loader: () => fetch("http://localhost:5000/chef"),
+
+        // eslint-disable-next-line no-dupe-keys
         loader: ({ params }) =>
           fetch(`http://localhost:5000/viewrecipe/${params.id}`),
       },
