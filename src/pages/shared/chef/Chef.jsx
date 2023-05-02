@@ -8,10 +8,12 @@ const Chef = () => {
   return (
     <div>
       <h5>Chef from different country......</h5>
+
       {allChef.length}
-      {allChef.map((item) => {
-        <ChefCard key={item.id} chef={item}></ChefCard>;
-      })}
+      <h4>{allChef.id}</h4>
+      {allChef.map((item) => (
+        <ChefCard key={item.id} chef={item}></ChefCard>
+      ))}
     </div>
   );
 };
