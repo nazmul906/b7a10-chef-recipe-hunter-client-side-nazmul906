@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -18,7 +19,9 @@ const Header = () => {
             </Nav>
           </Navbar.Collapse>
           {/*evabe update krte hbe user?{user.photUrl}:<button>Login</button> */}
-          <button>Login</button>
+          <button>
+            <Link to="/login">Login</Link>
+          </button>
         </Container>
       </Navbar>
     </div>
