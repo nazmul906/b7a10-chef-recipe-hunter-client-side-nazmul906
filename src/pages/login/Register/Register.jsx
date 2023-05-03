@@ -1,14 +1,28 @@
 /* eslint-disable react/no-unknown-property */
-import React from "react";
+import React, { useContext } from "react";
 import { Form } from "react-bootstrap";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  // console.log(createUser);
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    const photoUrl = form.photo.value;
+    console.log(name, email, password, photoUrl);
+
+    createUser(email, password)
+      .then((result) => {
+        const registered = result.user;
+        console.log(registered);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -27,7 +41,7 @@ const Register = () => {
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Example textarea</Form.Label>
+        <Form.Label>password</Form.Label>
         <Form.Control
           type="passwod"
           name="password"

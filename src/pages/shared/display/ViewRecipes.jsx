@@ -36,7 +36,7 @@ const ViewRecipes = ({ recipes }) => {
       <Row xs={1} md={2} lg={1} className="g-4">
         <Col>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
             <Card.Body>
               <Card.Title>{recipeName}</Card.Title>
               <Card.Text>{chef}</Card.Text>
