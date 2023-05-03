@@ -23,6 +23,16 @@ const Register = () => {
       .catch((error) => {
         console.log(error);
       });
+
+    updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photoUrl,
+    })
+      .then((result) => {
+        const updateduser = result.user;
+        console.log("update", updateduser);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (

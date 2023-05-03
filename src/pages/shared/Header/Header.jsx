@@ -2,8 +2,15 @@ import React, { useContext } from "react";
 import { Button, Container, Nav, Navbar, NavLink } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout()
+      .then()
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div>
@@ -25,18 +32,18 @@ const Header = () => {
                   <Nav.Link href="#link">{user.displayname} </Nav.Link>
                 </NavLink>
               )}
-              {/* <NavLink>
+              <NavLink>
                 {user ? (
-                  <button>logout</button>
+                  <button onClick={handleLogout}>logout</button>
                 ) : (
                   <Link to="/login">
                     <Button>Login</Button>
                   </Link>
                 )}
-              </NavLink> */}
-              <Link to="/login">
+              </NavLink>
+              {/* <Link to="/login">
                 <Button>Login</Button>
-              </Link>
+              </Link> */}
             </Nav>
           </Navbar.Collapse>
           {/*evabe update krte hbe user?{user.photUrl}:<button>Login</button> */}

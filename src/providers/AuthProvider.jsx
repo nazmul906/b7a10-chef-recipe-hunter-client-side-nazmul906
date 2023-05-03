@@ -1,27 +1,51 @@
 /* eslint-disable react/prop-types */
 import React, { createContext } from "react";
 import app from "../firebase/firebase.config";
+import { useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 // const app = initializeApp(firebaseConfig);
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 // eslint-disable-next-line react/prop-types
+
 const AuthProviders = ({ children }) => {
+  const [user, setUser] = useState(null);
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const signIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
-  const user = { displayname: "messi" };
+
+  const logout = () => {
+    return signOut(auth);
+  };
+
+  // as we have to observe user state from external(firebase) so use useEffect
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
+      console.log("logged in user inside the authstate observer", loggedUser);
+      setUser(loggedUser);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+  const updateProfile = () => {};
   const authInformation = {
     user,
     createUser,
     signIn,
+    updateProfile,
+    logout,
   };
   return (
     <AuthContext.Provider value={authInformation}>
