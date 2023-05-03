@@ -5,6 +5,7 @@ import Login from "../pages/login/Login/Login";
 import Register from "../pages/login/Register/Register";
 import Chef from "../pages/shared/chef/Chef";
 import Recipes from "../pages/shared/recipes/Recipes";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,15 +20,18 @@ const router = createBrowserRouter([
         element: <Chef></Chef>,
         loader: () => fetch("http://localhost:5000/chef"),
       },
-      {
-        path: "/chef/:id",
-        element: <Recipes></Recipes>,
-      },
+      // {
+      //   path: "/chef/:id",
+      //   element: <Recipes></Recipes>,
+      // },
 
       {
         path: "/viewrecipe/:id",
-        element: <Recipes></Recipes>,
-        // loader: () => fetch("http://localhost:5000/chef"),
+        element: (
+          <PrivateRoute>
+            <Recipes></Recipes>
+          </PrivateRoute>
+        ),
 
         // eslint-disable-next-line no-dupe-keys
         loader: ({ params }) =>
