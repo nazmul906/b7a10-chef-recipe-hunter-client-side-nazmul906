@@ -7,7 +7,7 @@ import ChefBanner from "../display/ChefBanner";
 const Recipes = () => {
   const [chef, setChef] = useState(null);
   const { id } = useParams();
-  console.log("recipe", id);
+  // console.log("recipe", id);
   // const allChef = useLoaderData();
   const recipedata = useLoaderData();
   useEffect(() => {
