@@ -3,13 +3,15 @@ import React, { useContext } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-
+import { useState } from "react";
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInWithGoogle, signInWithGithub } =
+    useContext(AuthContext);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   console.log("login page location", location);
-  const from = location.state.from.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
   console.log("log", from);
   const handleLogin = (event) => {
     event.preventDefault();
@@ -17,15 +19,31 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    if (password.length < 6) {
+      setError("password must be 6 o rmore character");
+    } else {
+      signIn(email, password)
+        .then((result) => {
+          const loggedInUser = result.user;
+          console.log(loggedInUser);
+          // navigate("/");
+          navigate(from, { replace: true });
+        })
+        .catch((error) => console.log(error));
+    }
+  };
 
-    signIn(email, password)
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
       .then((result) => {
-        const loggedInUser = result.user;
-        console.log(loggedInUser);
-        // navigate("/");
-        navigate(from, { replace: true });
+        const googleuser = result.user;
+        console.log("google", googleuser);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log("error", error.message));
+  };
+
+  const handleGithubSignIn = () => {
+    signInWithGithub();
   };
 
   return (
@@ -52,12 +70,19 @@ const Login = () => {
       <button variant="primary" type="submit">
         Login
       </button>
+      <p>{error}</p>
       <p>
         dont have an account{" "}
         <Link to="/register">
           <button>Register</button>
         </Link>
       </p>
+      <button variant="primary" type="submit" onClick={handleGoogleSignIn}>
+        Google
+      </button>
+      <button variant="primary" type="submit" onClick={handleGithubSignIn}>
+        Github
+      </button>
     </Form>
   );
 };

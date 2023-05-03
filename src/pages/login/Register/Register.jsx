@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserData } = useContext(AuthContext);
   // console.log(createUser);
   const handleRegister = (event) => {
     event.preventDefault();
@@ -15,22 +15,19 @@ const Register = () => {
     const photoUrl = form.photo.value;
     console.log(name, email, password, photoUrl);
 
-    createUser(email, password)
+    createUser(email, password, photoUrl)
       .then((result) => {
         const registered = result.user;
-        console.log(registered);
+        console.log("registered", registered);
       })
       .catch((error) => {
         console.log(error);
       });
 
-    updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: photoUrl,
-    })
+    updateUserData(photoUrl)
       .then((result) => {
-        const updateduser = result.user;
-        console.log("update", updateduser);
+        const updatedUser = result.user;
+        console.log("updated", updatedUser);
       })
       .catch((error) => console.log(error));
   };
