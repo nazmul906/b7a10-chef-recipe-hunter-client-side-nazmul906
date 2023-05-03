@@ -38,6 +38,7 @@ const Login = () => {
       .then((result) => {
         const googleuser = result.user;
         console.log("google", googleuser);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log("error", error.message));
   };
@@ -47,6 +48,7 @@ const Login = () => {
       .then((result) => {
         const gituser = result.user;
         console.log("gituser", gituser);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log("error", error.message));
   };

@@ -10,7 +10,8 @@ const Main = () => {
       <Header></Header>
       <Container>
         <Row>
-          <Col sm={12}>
+          <Col>
+            {/* sm={12} */}
             <Outlet></Outlet>
           </Col>
           {/* <Col sm={8}>sm=4</Col> */}

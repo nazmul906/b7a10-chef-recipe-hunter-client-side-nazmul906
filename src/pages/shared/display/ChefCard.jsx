@@ -5,11 +5,20 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
 // eslint-disable-next-line react/prop-types
+
 const ChefCard = ({ chef }) => {
   // eslint-disable-next-line react/prop-types
   const { id, chefName } = chef;
+  const [toastShow, setToastShow] = useState(false);
   //   console.log("chef", chef);
+  const showToastMessage = () => {
+    toast.success("This is my favourite recipe");
+    setToastShow(true);
+  };
   return (
     <div>
       {/* <Row xs={1} md={2} className="g-4"> */}
@@ -53,9 +62,13 @@ const ChefCard = ({ chef }) => {
                 <Card.Text>{chef.shortBio}</Card.Text>
               </Card.Body>
               <Link to={`/viewrecipe/${id}`}>
-                <Button>View Recipes</Button>
+                <Button className="mb-4">View Recipes</Button>
               </Link>
+              <Button disabled={toastShow} onClick={showToastMessage}>
+                Favourite
+              </Button>
             </Card>
+            <ToastContainer />
           </Col>
         )}
       </Row>

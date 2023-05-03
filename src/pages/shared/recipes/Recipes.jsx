@@ -12,7 +12,9 @@ const Recipes = () => {
   const recipedata = useLoaderData();
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`http://localhost:5000/chef/${id}`);
+      const response = await fetch(
+        `https://b7a10-chef-recipe-hunter-server-side-nazmul906-nazmul906.vercel.app/chef/${id}`
+      );
       const json = await response.json();
       setChef(json);
     }

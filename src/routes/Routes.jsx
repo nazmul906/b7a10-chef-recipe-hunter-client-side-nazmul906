@@ -20,7 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Chef></Chef>,
-        loader: () => fetch("http://localhost:5000/chef"),
+        loader: () =>
+          fetch(
+            "https://b7a10-chef-recipe-hunter-server-side-nazmul906-nazmul906.vercel.app/chef"
+          ),
       },
       // {
       //   path: "/chef/:id",
@@ -36,7 +39,9 @@ const router = createBrowserRouter([
         ),
         // eslint-disable-next-line no-dupe-keys
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/viewrecipe/${params.id}`),
+          fetch(
+            `https://b7a10-chef-recipe-hunter-server-side-nazmul906-nazmul906.vercel.app/viewrecipe/${params.id}`
+          ),
       },
       {
         path: "/login",
