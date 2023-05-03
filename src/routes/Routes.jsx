@@ -5,6 +5,7 @@ import Login from "../pages/login/Login/Login";
 import Register from "../pages/login/Register/Register";
 import Chef from "../pages/shared/chef/Chef";
 import Recipes from "../pages/shared/recipes/Recipes";
+import Error from "../pages/shared/error/Error";
 import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register></Register>,
+  },
+  {
+    path: "/*",
+    element: <Error></Error>,
   },
 ]);
 export default router;
