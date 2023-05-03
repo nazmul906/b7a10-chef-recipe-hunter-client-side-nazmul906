@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from "react";
+import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -10,27 +12,52 @@ const ChefCard = ({ chef }) => {
   //   console.log("chef", chef);
   return (
     <div>
-      <Row xs={1} md={2} className="g-4">
-        {/* {Array.from({ length: 4 }).map((_, idx) => ( */}
-        {/* <Col key={idx}> */}
-        <Col>
+      {/* <Row xs={1} md={2} className="g-4"> */}
+      {/* {Array.from({ length: 4 }).map((_, idx) => ( */}
+      {/* <Col key={idx}> */}
+      {/* <Col>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
+            <Card.Img variant="top" src={chef.picture} />
             <Card.Body>
               {id}
               <Card.Title>{chefName}</Card.Title>
               <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                Likes: {chef.likes} | Recipes: {chef.numRecipes} | Experience:{" "}
+                {chef.yearsOfExperience} years
               </Card.Text>
             </Card.Body>
-            <button>
-              <Link to={`/viewrecipe/${id}`}>Show more recipe</Link>
-            </button>
+
+            <Link to={`/viewrecipe/${id}`}>
+              <Button>View Recipes</Button>
+            </Link>
           </Card>
         </Col>
         {/* ))} */}
+      {/* </Row> */}
+      <Row>
+        {chef && (
+          <Col md={6} lg={6}>
+            {" "}
+            <Card
+              className="bg-dark text-white mb-4"
+              style={{ width: "18rem" }}
+            >
+              <Card.Img variant="top" src={chef.picture} />
+              <Card.Body>
+                <Card.Title>{chef.chefName}</Card.Title>
+
+                <Card.Text>
+                  Likes: {chef.likes} | Recipes: {chef.numRecipes} | Experience:{" "}
+                  {chef.yearsOfExperience} years
+                </Card.Text>
+                <Card.Text>{chef.shortBio}</Card.Text>
+              </Card.Body>
+              <Link to={`/viewrecipe/${id}`}>
+                <Button>View Recipes</Button>
+              </Link>
+            </Card>
+          </Col>
+        )}
       </Row>
     </div>
   );

@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 const ChefBanner = ({ chef }) => {
-  console.log("cbanner", chef);
+  // console.log("cbanner", chef);
   {
     /* {chef &&
           Object.entries(chef).map(([key, value]) => (
@@ -15,7 +15,7 @@ const ChefBanner = ({ chef }) => {
   return (
     <div className="d-flex justify-content-center">
       {chef && (
-        <Card className="bg-dark text-white mb-4" style={{ width: "18rem" }}>
+        <Card className="bg-dark text-white mb-4" style={{ width: "40rem" }}>
           <Card.Img variant="top" src={chef.picture} />
           <Card.Body>
             <Card.Title>{chef.chefName}</Card.Title>
@@ -24,6 +24,7 @@ const ChefBanner = ({ chef }) => {
               Likes: {chef.likes} | Recipes: {chef.numRecipes} | Experience:{" "}
               {chef.yearsOfExperience} years
             </Card.Text>
+            <Card.Text>{chef.shortBio}</Card.Text>
           </Card.Body>
         </Card>
       )}

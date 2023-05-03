@@ -34,25 +34,29 @@ const router = createBrowserRouter([
             <Recipes></Recipes>
           </PrivateRoute>
         ),
-
         // eslint-disable-next-line no-dupe-keys
         loader: ({ params }) =>
           fetch(`http://localhost:5000/viewrecipe/${params.id}`),
       },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
     ],
   },
-  {
-    path: "/login",
-    element: <Login></Login>,
-  },
-  {
-    path: "/register",
-    element: <Register></Register>,
-  },
-  {
-    path: "/blog",
-    element: <Blog></Blog>,
-  },
+  // {
+  //   path: "/login",
+  //   element: <Login></Login>,
+  // },
+
   {
     path: "/*",
     element: <Error></Error>,

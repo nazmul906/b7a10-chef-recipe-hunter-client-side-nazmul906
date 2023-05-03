@@ -29,7 +29,8 @@ const Header = () => {
             <Nav>
               {user && (
                 <NavLink>
-                  <Nav.Link href="#link">{user.displayname} </Nav.Link>
+                  {/* <Nav.Link href="#link">{user.displayName} </Nav.Link> */}
+                  <p>User:{user.displayName}</p>
                 </NavLink>
               )}
               <NavLink>
