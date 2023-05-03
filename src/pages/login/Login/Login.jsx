@@ -12,7 +12,7 @@ const Login = () => {
   const location = useLocation();
   console.log("login page location", location);
   const from = location.state?.from?.pathname || "/";
-  console.log("log", from);
+  // console.log("log", from);
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -43,7 +43,12 @@ const Login = () => {
   };
 
   const handleGithubSignIn = () => {
-    signInWithGithub();
+    signInWithGithub()
+      .then((result) => {
+        const gituser = result.user;
+        console.log("gituser", gituser);
+      })
+      .catch((error) => console.log("error", error.message));
   };
 
   return (

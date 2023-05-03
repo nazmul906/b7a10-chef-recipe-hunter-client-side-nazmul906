@@ -11,6 +11,7 @@ import {
   updateProfile,
   GoogleAuthProvider,
   signInWithPopup,
+  GithubAuthProvider,
 } from "firebase/auth";
 // const app = initializeApp(firebaseConfig);
 export const AuthContext = createContext(null);
@@ -22,8 +23,8 @@ const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const provider = new GoogleAuthProvider();
-
+  const googleprovider = new GoogleAuthProvider();
+  const gitprovider = new GithubAuthProvider();
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -49,12 +50,14 @@ const AuthProviders = ({ children }) => {
 
   const signInWithGoogle = () => {
     console.log("google is clicked");
-    return signInWithPopup(auth, provider);
+    setLoading(true);
+    return signInWithPopup(auth, googleprovider);
   };
 
   const signInWithGithub = () => {
+    setLoading(true);
     console.log("gihub is clicked");
-    return;
+    return signInWithPopup(auth, gitprovider);
   };
   // as we have to observe user state from external(firebase) so use useEffect
 
