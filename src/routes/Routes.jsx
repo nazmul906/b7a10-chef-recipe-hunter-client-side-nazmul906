@@ -7,6 +7,7 @@ import Chef from "../pages/shared/chef/Chef";
 import Recipes from "../pages/shared/recipes/Recipes";
 import Error from "../pages/shared/error/Error";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../pages/shared/blog/Blog";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register></Register>,
+  },
+  {
+    path: "/blog",
+    element: <Blog></Blog>,
   },
   {
     path: "/*",

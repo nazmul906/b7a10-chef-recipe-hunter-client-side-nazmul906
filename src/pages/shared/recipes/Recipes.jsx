@@ -42,6 +42,8 @@ const Recipes = () => {
           <ChefBanner key={item.id} chef={item}></ChefBanner>
         ))}
       </div> */}
+
+      <ChefBanner chef={chef}></ChefBanner>
       <div>
         {recipedata.map((item) => (
           <ViewRecipes key={item.id} recipes={item}></ViewRecipes>
