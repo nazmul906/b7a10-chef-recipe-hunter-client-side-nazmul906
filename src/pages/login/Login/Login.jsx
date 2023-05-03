@@ -36,6 +36,12 @@ const Login = () => {
       <button variant="primary" type="submit">
         Login
       </button>
+      <p>
+        dont have an account{" "}
+        <Link to="/register">
+          <button>Register</button>
+        </Link>
+      </p>
     </Form>
   );
 };

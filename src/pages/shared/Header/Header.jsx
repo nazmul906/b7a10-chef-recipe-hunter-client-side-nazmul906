@@ -1,8 +1,10 @@
-import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Button, Container, Nav, Navbar, NavLink } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../../../providers/AuthProvider";
 const Header = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div>
       <div>
@@ -17,11 +19,27 @@ const Header = () => {
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#link">Blog </Nav.Link>
             </Nav>
+            <Nav>
+              {user && (
+                <NavLink>
+                  <Nav.Link href="#link">{user.displayname} </Nav.Link>
+                </NavLink>
+              )}
+              {/* <NavLink>
+                {user ? (
+                  <button>logout</button>
+                ) : (
+                  <Link to="/login">
+                    <Button>Login</Button>
+                  </Link>
+                )}
+              </NavLink> */}
+              <Link to="/login">
+                <Button>Login</Button>
+              </Link>
+            </Nav>
           </Navbar.Collapse>
           {/*evabe update krte hbe user?{user.photUrl}:<button>Login</button> */}
-          <button>
-            <Link to="/login">Login</Link>
-          </button>
         </Container>
       </Navbar>
     </div>
