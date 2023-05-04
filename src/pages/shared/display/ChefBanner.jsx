@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+// import { lazy, Suspense } from "react";
+
+// const LazyCardImg = lazy(() => import("./CardImg"));
 
 const ChefBanner = ({ chef }) => {
   // console.log("cbanner", chef);

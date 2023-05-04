@@ -1,8 +1,19 @@
 import React from "react";
+// import { useRef } from "react";
+// import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+// import MyDocument from "./MyDocument";
 
 const Blog = () => {
+  // const pdfRef = useRef();
+  // const generatePdf = () => {
+  //   const doc = <MyDocument />;
+
+  //   pdfRef.current.updateContainer(doc);
+  // };
   return (
     <div>
+      {/* <button onClick={generatePdf}>Download PDF</button> */}
+
       <h4>
         1.Tell us the differences between uncontrolled and controlled
         components.
@@ -38,10 +49,13 @@ const Blog = () => {
       </p>
       <h4>4. What is a custom hook, and why will you create a custom hook?</h4>
       <p>
-        custom hook is used to reuse the hook when necessary to avoid repeating
-        the same code. It is applied with the word "use"
+        custom hook can be created by us. custom hook is used to reuse the hook
+        when necessary to avoid repeating the same code. It is applied with the
+        word "use".
         <br />
-        we need to make custom hooks to make code clean and reliable
+        we need to make custom hooks to make code clean and also So if we need
+        to create a resuable function like fetching data from API, which could
+        be used in other component we do it by custom hook
       </p>
     </div>
   );

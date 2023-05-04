@@ -23,28 +23,10 @@ const Recipes = () => {
     // fetch(`http://localhost:5000/chef/${id}`)
     //   .then((res) => res.json())
     //   .then((data) => setChef(data));
-
-    // const selectedChef = allChef.find((item) => item.id === id);
-    // console.log(selectedChef);
   }, [id]);
-
-  // const Chef = () => {
-  //   const selectedChef = allChef.find((item) => item.id === id);
-  //   console.log(selectedChef);
-  // };
-  // Chef();
 
   return (
     <div>
-      {/* <h5>len:{allChef.length}</h5> */}
-
-      <h4>this is recipe page </h4>
-      {/* <div>
-        {chef.map((item) => (
-          <ChefBanner key={item.id} chef={item}></ChefBanner>
-        ))}
-      </div> */}
-
       <ChefBanner chef={chef}></ChefBanner>
       <div>
         {recipedata.map((item) => (

@@ -1,32 +1,47 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
+    <footer>
       <Container>
         <Row>
-          <Col md={6}>
-            <p>&copy; 2023 My Awesome Website. All rights reserved.</p>
-            <p>Created by Nazmul</p>
+          <Col lg={6} md={6} sm={12}>
+            <h5>About Us</h5>
+            <p>
+              Our page provide various recipe of world top chef.You can visist
+              us and learn some of their most popular recipe
+            </p>
           </Col>
-          <Col md={6}>
-            <ul className="list-inline text-right">
-              <li className="list-inline-item">
+          <Col lg={3} md={3} sm={12}>
+            <h5>Links</h5>
+            <ul className="list-unstyled">
+              <li>
                 <Link>Privacy Policy</Link>
               </li>
-              <li className="list-inline-item">
-                <Link>Contact</Link>
-              </li>
-              <li className="list-inline-item">
-                <Link>Email</Link>
+              <li>
+                <Link to="/blog">Blog</Link>
               </li>
             </ul>
           </Col>
+          <Col lg={3} md={3} sm={12}>
+            <h5>Contact Us</h5>
+            <p>
+              Address: Banani,Dhaka
+              <br />
+              Phone: (123) 456-7890
+              <br />
+              Email: info@example.com
+            </p>
+          </Col>
         </Row>
+        <hr />
+        <p className="text-center">
+          &copy; {new Date().getFullYear()} My Website. All Rights Reserved.
+        </p>
       </Container>
-    </div>
+    </footer>
   );
 };
 
