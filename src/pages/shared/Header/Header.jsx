@@ -37,7 +37,7 @@ const Header = () => {
               )}
               <NavLink activeclassname="active">
                 {user ? (
-                  <button onClick={handleLogout}>logout</button>
+                  <Button onClick={handleLogout}>logout</Button>
                 ) : (
                   <Link to="/login">
                     <Button>Login</Button>
