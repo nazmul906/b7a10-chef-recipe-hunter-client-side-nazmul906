@@ -9,13 +9,7 @@ const Main = () => {
     <div>
       <Header></Header>
       <Container>
-        <Row>
-          <Col>
-            {/* sm={12} */}
-            <Outlet></Outlet>
-          </Col>
-          {/* <Col sm={8}>sm=4</Col> */}
-        </Row>
+        <Outlet></Outlet>
       </Container>
       <Footer></Footer>
     </div>

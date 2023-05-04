@@ -23,21 +23,19 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/" activeClassName="active">
-                Home
-              </Nav.Link>
-              <Nav.Link href="/blog" activeClassName="active">
-                Blog{" "}
-              </Nav.Link>
+              {/* activeclassname="active" */}
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/blog">Blog </Nav.Link>
             </Nav>
             <Nav>
               {user && (
                 <NavLink>
                   {/* <Nav.Link href="#link">{user.displayName} </Nav.Link> */}
-                  <p>User:{user.displayName}</p>
+                  {/* <p>User:{user.displayName}</p> */}
+                  <img src={user.photoURL} height="40" width="40"></img>
                 </NavLink>
               )}
-              <NavLink activeClassName="active">
+              <NavLink activeclassname="active">
                 {user ? (
                   <button onClick={handleLogout}>logout</button>
                 ) : (

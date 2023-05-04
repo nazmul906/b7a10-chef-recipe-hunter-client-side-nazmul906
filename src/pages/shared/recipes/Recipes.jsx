@@ -48,7 +48,7 @@ const Recipes = () => {
       <ChefBanner chef={chef}></ChefBanner>
       <div>
         {recipedata.map((item) => (
-          <ViewRecipes key={item.id} recipes={item}></ViewRecipes>
+          <ViewRecipes key={item.recipeId} recipes={item}></ViewRecipes>
         ))}
       </div>
     </div>

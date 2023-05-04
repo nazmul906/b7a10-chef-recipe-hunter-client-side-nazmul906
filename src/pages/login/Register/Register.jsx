@@ -15,21 +15,23 @@ const Register = () => {
     const photoUrl = form.photo.value;
     console.log(name, email, password, photoUrl);
 
-    createUser(email, password, photoUrl)
+    createUser(email, password)
       .then((result) => {
         const registered = result.user;
+
+        updateUserData({ displayName: name, photoURL: photoUrl })
+          .then((result) => {
+            // const updatedUser = result.user;
+            // console.log("updated", updatedUser);
+          })
+          .catch((error) => console.log(error));
         console.log("registered", registered);
+        form.reset();
+        alert("successgully registered.Now you can login");
       })
       .catch((error) => {
         console.log(error);
       });
-
-    updateUserData(photoUrl)
-      .then((result) => {
-        const updatedUser = result.user;
-        console.log("updated", updatedUser);
-      })
-      .catch((error) => console.log(error));
   };
 
   return (

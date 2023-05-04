@@ -14,7 +14,7 @@ import {
   GithubAuthProvider,
 } from "firebase/auth";
 // const app = initializeApp(firebaseConfig);
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
 
 const auth = getAuth(app);
 // eslint-disable-next-line react/prop-types
@@ -38,14 +38,11 @@ const AuthProviders = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
-  const updateUserData = (photUrl) => {
-    setLoading(true);
-    console.log("updateuser is called");
-    if (user) {
-      return updateProfile(auth.user, {
-        photoURL: photUrl,
-      });
-    }
+  const updateUserData = (profile) => {
+    // setLoading(true);
+    // console.log("updateuser is called");
+
+    return updateProfile(auth.currentUser, profile);
   };
 
   const signInWithGoogle = () => {
@@ -63,13 +60,13 @@ const AuthProviders = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
-      console.log("logged in user inside the authstate observer", loggedUser);
-      setUser(loggedUser);
+      // console.log("logged in user inside the authstate observer", loggedUser);
       setLoading(false);
+      setUser(loggedUser);
     });
 
     return () => {
-      unsubscribe();
+      return unsubscribe();
     };
   }, []);
 

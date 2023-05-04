@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import ChefCard from "../display/ChefCard";
 
@@ -7,15 +7,13 @@ const Chef = () => {
   const allChef = useLoaderData();
 
   return (
-    <div>
-      <h5>Chef from different country......</h5>
-
-      {/* {allChef.length} */}
-      <h4>{allChef.id}</h4>
-      {allChef.map((item) => (
-        <ChefCard key={item.id} chef={item}></ChefCard>
-      ))}
-    </div>
+    <Container>
+      <Row>
+        {allChef.map((item) => (
+          <ChefCard key={item.id} chef={item}></ChefCard>
+        ))}
+      </Row>
+    </Container>
   );
 };
 
