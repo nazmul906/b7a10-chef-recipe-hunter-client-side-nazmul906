@@ -2,10 +2,17 @@ import React, { useContext } from "react";
 import { Button, Container, Nav, Navbar, NavLink } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
-
+import { useState } from "react";
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
+  const [showName, setShowName] = useState(false);
+  const handleMouseEnter = () => {
+    setShowName(true);
+  };
 
+  const handleMouseLeave = () => {
+    setShowName(false);
+  };
   const handleLogout = () => {
     logout()
       .then()
@@ -31,8 +38,15 @@ const Header = () => {
               {user && (
                 <NavLink>
                   {/* <Nav.Link href="#link">{user.displayName} </Nav.Link> */}
-                  {/* <p>User:{user.displayName}</p> */}
-                  <img src={user.photoURL} height="40" width="40"></img>
+                  {/* <p>User:{user.displayName}</p>
+                  <img src={user.photoURL} height="40" width="40"></img> */}
+                  <div
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <img src={user.photoURL} height="40" width="40"></img>
+                    {showName && <p>{user.displayName}</p>}
+                  </div>
                 </NavLink>
               )}
               <NavLink activeclassname="active">

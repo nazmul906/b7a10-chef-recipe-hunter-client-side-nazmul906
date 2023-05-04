@@ -23,40 +23,25 @@ const ViewRecipes = ({ recipes }) => {
   } = recipes;
   return (
     <div>
-      {/* <Card>
-        {/* <Card.Img variant="top" src={image_url} /> */}
-      {/* <Card.Body> */}
-      {/* <Card.Title>{recipeName}</Card.Title>
-          <Card.Text>{chef}</Card.Text>
-          <Card.Text></Card.Text>
-          <ListGroup>
-            <ListGroup.Item>{ingredients}</ListGroup.Item>
-          </ListGroup>  */}
-      {/* <Link to={`/category/${category_id}`}>
-            <Button variant="danger">
-              <FaArrowLeft></FaArrowLeft> All News in this category
-            </Button>
-          </Link> */}
-      {/* </Card.Body>
-      </Card> */}
-
       <Row xs={1} md={2} lg={1} className="g-4">
         <Col>
-          <Card>
+          <Card className="">
             {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
-            <Card.Body>
+            <Card.Body className=" text-center">
               <Card.Title>{recipeName}</Card.Title>
               <Card.Text>{chef}</Card.Text>
               <ListGroup>
-                <ListGroup.Item>{ingredients}</ListGroup.Item>
+                <ListGroup.Item className="g-4">{ingredients}</ListGroup.Item>
               </ListGroup>
-              <p>{cookingMethod}</p>
+              {/* <Card.Text className="g-4">{ingredients}</Card.Text> */}
+              {/* <p>{cookingMethod}</p> */}
+              <Card.Text>{cookingMethod}</Card.Text>
               <Card.Text>{rating}</Card.Text>
+              <Button disabled={toastShow} onClick={showToastMessage}>
+                Favourite
+              </Button>
             </Card.Body>
           </Card>
-          <Button disabled={toastShow} onClick={showToastMessage}>
-            Favourite
-          </Button>
         </Col>
       </Row>
       <ToastContainer />
