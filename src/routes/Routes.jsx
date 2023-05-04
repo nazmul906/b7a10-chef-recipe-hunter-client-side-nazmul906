@@ -8,15 +8,12 @@ import Recipes from "../pages/shared/recipes/Recipes";
 import Error from "../pages/shared/error/Error";
 import PrivateRoute from "./PrivateRoute";
 import Blog from "../pages/shared/blog/Blog";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
     children: [
-      //   {
-      //     path: "/",
-      //     element: <Home></Home>,
-      //   },
       {
         path: "/",
         element: <Chef></Chef>,
@@ -25,6 +22,10 @@ const router = createBrowserRouter([
             "https://b7a10-chef-recipe-hunter-server-side-nazmul906-nazmul906.vercel.app/chef"
           ),
       },
+      // {
+      //   path: "/",
+      //   element: <Banner></Banner>,
+      // },
       // {
       //   path: "/chef/:id",
       //   element: <Recipes></Recipes>,

@@ -3,7 +3,7 @@ import React from "react";
 const Error = () => {
   return (
     <div>
-      <h4>This is an error page</h4>
+      <img src="https://colorlib.com/wp/wp-content/uploads/sites/2/404-error-page-templates.jpg"></img>
     </div>
   );
 };

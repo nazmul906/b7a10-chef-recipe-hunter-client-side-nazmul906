@@ -10,7 +10,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("login page location", location);
+  // console.log("login page location", location);
   const from = location.state?.from?.pathname || "/";
   // console.log("log", from);
   const handleLogin = (event) => {
@@ -74,22 +74,28 @@ const Login = () => {
           // rows={3}
         />
       </Form.Group>
-      <button variant="primary" type="submit">
+      <Button variant="primary" type="submit">
         Login
-      </button>
+      </Button>
       <p>{error}</p>
       <p>
-        dont have an account{" "}
+        dont have an account? please Register first..
         <Link to="/register">
-          <button>Register</button>
+          <Button>Register</Button>
         </Link>
       </p>
-      <button variant="primary" type="submit" onClick={handleGoogleSignIn}>
+      <Button
+        className="me-2"
+        variant="primary"
+        type="submit"
+        onClick={handleGoogleSignIn}
+      >
         Google
-      </button>
-      <button variant="primary" type="submit" onClick={handleGithubSignIn}>
+      </Button>
+
+      <Button variant="primary" type="submit" onClick={handleGithubSignIn}>
         Github
-      </button>
+      </Button>
     </Form>
   );
 };

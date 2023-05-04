@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useContext } from "react";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Register = () => {
@@ -69,9 +69,9 @@ const Register = () => {
           // rows={3}
         />
       </Form.Group>
-      <button variant="primary" type="submit">
+      <Button variant="primary" type="submit">
         Register
-      </button>
+      </Button>
     </Form>
   );
 };

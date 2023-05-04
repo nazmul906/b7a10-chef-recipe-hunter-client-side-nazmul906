@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -13,13 +14,13 @@ const Footer = () => {
           <Col md={6}>
             <ul className="list-inline text-right">
               <li className="list-inline-item">
-                <a href="#">Privacy Policy</a>
+                <Link>Privacy Policy</Link>
               </li>
               <li className="list-inline-item">
-                <a href="#">Terms of Use</a>
+                <Link>Contact</Link>
               </li>
               <li className="list-inline-item">
-                <a href="#">Contact Us</a>
+                <Link>Email</Link>
               </li>
             </ul>
           </Col>
