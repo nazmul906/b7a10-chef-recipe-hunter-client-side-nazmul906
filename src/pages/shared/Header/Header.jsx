@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useState } from "react";
 import "./header.css";
+import ActiveLink from "../../../ActiveLink/ActiveLink";
 const Header = () => {
   const { user, logout } = useContext(AuthContext);
   const [showName, setShowName] = useState(false);
@@ -34,12 +35,27 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {/* activeclassname="active" */}
-            <Nav.Link style={{ color: "white" }} href="/">
+            {/* <NavLink
+              // style={{ color: "white" }}
+              href="/"
+              className="nav-link"
+              activeclassname="active active-nav-link"
+            >
               Home
-            </Nav.Link>
-            <Nav.Link style={{ color: "white" }} href="/blog">
-              Blog{" "}
-            </Nav.Link>
+            </NavLink> */}
+            <ActiveLink to="/" className="me-2">
+              Home
+            </ActiveLink>
+            <ActiveLink to="/blog" className="ms-2">
+              Blog
+            </ActiveLink>
+            {/* <NavLink
+              // style={{ color: "white" }}
+              to="/blog"
+            >
+              {" "}
+              Blog
+            </NavLink> */}
           </Nav>
           <Nav>
             {user && (
@@ -67,12 +83,9 @@ const Header = () => {
                 </Link>
               )}
             </NavLink>
-            {/* <Link to="/login">
-                <Button>Login</Button>
-              </Link> */}
           </Nav>
         </Navbar.Collapse>
-        {/*evabe update krte hbe user?{user.photUrl}:<button>Login</button> */}
+
         {/* </Container> */}
       </Navbar>
     </Container>

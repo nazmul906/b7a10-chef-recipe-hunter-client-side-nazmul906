@@ -3,3 +3,10 @@
   padding: 30px;
   margin-top: 10px;
 }
+.nav-link {
+  color: white;
+}
+
+.active-nav-link {
+  color: red;
+}

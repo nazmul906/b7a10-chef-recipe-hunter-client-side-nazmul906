@@ -4,12 +4,17 @@ import { Button, Container, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useState } from "react";
+
+import { FcGoogle } from "react-icons/fc";
+import { BsGithub } from "react-icons/bs";
+
 const Login = () => {
   const { signIn, signInWithGoogle, signInWithGithub } =
     useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+
   // console.log("login page location", location);
   const from = location.state?.from?.pathname || "/";
   // console.log("log", from);
@@ -18,6 +23,7 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+
     // console.log(email, password);
     if (password.length < 6) {
       setError("password must be 6 or more character");
@@ -84,24 +90,27 @@ const Login = () => {
       </Button>
       <p className="text-danger">{error}</p>
       <div className="d-flex ">
-        <p className="me-3">dont have an account? please Register first..</p>
+        <p className="me-3">
+          <small>dont have an account? please Register first..</small>
+        </p>
         <Link to="/register">
           <Button>Register</Button>
         </Link>
       </div>
 
-      <Button
+      <button
         className="me-2"
         variant="primary"
         type="submit"
         onClick={handleGoogleSignIn}
       >
+        <FcGoogle></FcGoogle>
         Google
-      </Button>
+      </button>
 
-      <Button variant="primary" type="submit" onClick={handleGithubSignIn}>
-        Github
-      </Button>
+      <button variant="primary" type="submit" onClick={handleGithubSignIn}>
+        <BsGithub></BsGithub> Github
+      </button>
     </Form>
   );
 };
