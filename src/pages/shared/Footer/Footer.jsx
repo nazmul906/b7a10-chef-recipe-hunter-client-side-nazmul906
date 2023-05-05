@@ -8,7 +8,7 @@ const Footer = () => {
   // };
 
   return (
-    <Container className="bg-dark text-white pt-4">
+    <Container className="bg-dark text-white pt-4 mt-4">
       <Row>
         <Col lg={6} md={6} sm={12}>
           <h5>About Us</h5>

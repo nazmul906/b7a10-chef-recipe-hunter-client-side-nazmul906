@@ -20,16 +20,20 @@ const Login = () => {
     const password = form.password.value;
     // console.log(email, password);
     if (password.length < 6) {
-      setError("password must be 6 o rmore character");
+      setError("password must be 6 or more character");
     } else {
       signIn(email, password)
         .then((result) => {
           const loggedInUser = result.user;
           console.log(loggedInUser);
           // navigate("/");
+          form.reset();
           navigate(from, { replace: true });
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(error.message);
+          setError(error.message);
+        });
     }
   };
 
@@ -74,16 +78,18 @@ const Login = () => {
           // rows={3}
         />
       </Form.Group>
+
       <Button variant="primary" type="submit">
         Login
       </Button>
-      <p>{error}</p>
-      <p>
-        dont have an account? please Register first..
+      <p className="text-danger">{error}</p>
+      <div className="d-flex ">
+        <p className="me-3">dont have an account? please Register first..</p>
         <Link to="/register">
           <Button>Register</Button>
         </Link>
-      </p>
+      </div>
+
       <Button
         className="me-2"
         variant="primary"
