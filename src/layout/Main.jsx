@@ -10,7 +10,6 @@ const Main = () => {
   return (
     <div>
       <Header></Header>
-
       <Container>
         <div>
           {navigation.state === "loading" && (
