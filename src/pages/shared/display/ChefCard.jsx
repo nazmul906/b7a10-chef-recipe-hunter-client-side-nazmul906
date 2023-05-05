@@ -27,11 +27,11 @@ const ChefCard = ({ chef }) => {
             Likes: {chef.likes} | Recipes: {chef.numRecipes} | Experience:{" "}
             {chef.yearsOfExperience} years
           </Card.Text>
-          <Card.Text>{chef.shortBio}</Card.Text>
+          {/* <Card.Text>{chef.shortBio}</Card.Text> */}
+          <Link to={`/viewrecipe/${id}`}>
+            <Button className="mb-4">View Recipes</Button>
+          </Link>
         </Card.Body>
-        <Link to={`/viewrecipe/${id}`}>
-          <Button className="mb-4">View Recipes</Button>
-        </Link>
       </Card>
     </Col>
   );

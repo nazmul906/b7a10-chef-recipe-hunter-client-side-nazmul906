@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import ViewRecipes from "../display/ViewRecipes";
 import { useEffect, useState } from "react";
 import ChefBanner from "../display/ChefBanner";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Recipes = () => {
   const [chef, setChef] = useState(null);
@@ -26,13 +27,18 @@ const Recipes = () => {
   }, [id]);
 
   return (
-    <div>
-      <ChefBanner chef={chef}></ChefBanner>
-      <div>
-        {recipedata.map((item) => (
-          <ViewRecipes key={item.recipeId} recipes={item}></ViewRecipes>
-        ))}
-      </div>
+    <div style={{ marginTop: "20px" }}>
+      <Row>
+        <Col md={6}>
+          <ChefBanner chef={chef}></ChefBanner>
+        </Col>
+        <Col md={6}>
+          {recipedata.map((item) => (
+            <ViewRecipes key={item.recipeId} recipes={item}></ViewRecipes>
+          ))}
+        </Col>
+        {/* <div></div> */}
+      </Row>
     </div>
   );
 };

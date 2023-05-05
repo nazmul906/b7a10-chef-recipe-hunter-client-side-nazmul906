@@ -4,7 +4,7 @@ import "./toprecipe.css";
 const TopRecipe = () => {
   return (
     <div className="mt-4">
-      <h2 className="text-center mb-3">Top Recipes</h2>
+      <h2 className="text-center text-sm-center mb-3 ">Top Recipes</h2>
       <Container>
         <Row>
           <Col md={4}>
